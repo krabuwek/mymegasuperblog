@@ -14,8 +14,16 @@ class User < ActiveRecord::Base
     :trackable, 
     :validatable
 
-  	def create_role
-  		self.roles << Role.find_by_name(:user);
-  	end
+	def create_role
+		self.roles << Role.find_by_name(:user);
+	end
 
+	def has_role?(role)
+		self.roles.where(name: role).exists?
+	end
+
+	def get_list_posts 
+		das = Post.where(user_id: @id)
+		
+	end
 end
