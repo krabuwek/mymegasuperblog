@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Все новости</h1>
+
+
+
+<% @posts.each do |post| %>
+  <div class="post">
+    <div class="title">
+      <h1><%= link_to "#{post.title}", post %> </h1>
+    </div>
+    <div class="body">
+      <%= truncate(post.body, length: 200) %>
+    </div>
+    <div class="time">
+      <%= post.created_at %>
+    </div>
+    <div class="user-email">
+      Автор: <%= post.user.email %>
+    </div>
+  </div>
+<% end %>
+
+<br>
+<%= paginate @posts %>
+<%= link_to 'New Post', new_post_path %>

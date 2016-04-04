@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dsd</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="wrap">
+	<div class="header clear-fix">
+		<ul>
+		<li>Home</li>
+			<% if user_signed_in? %>
+				<li><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></li>
+			<% else %>
+				<li><%= link_to 'Войти', new_user_session_path %></li>
+				<li><%= link_to 'Регистрация', new_user_registration_path %></li>
+			<% end %>
+		</ul>
+	</div>
+	<div class="<%= controller_name %> yield">
+		<%= yield %>
+	</div>
+	<div class="footer">
+		Тут типа футер ёбана
+	</div>
+</div>
+</body>
+</html>
