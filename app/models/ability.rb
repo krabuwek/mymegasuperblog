@@ -9,7 +9,7 @@ class Ability
       can :manage, :all
     else
       can [:create,:read], :all
-      can :update, Post, :id => user.get_list_posts
+      can :update, Post, :id => user.get_list_posts(user.id)
     end
 
     # Define abilities for the passed in user here. For example:

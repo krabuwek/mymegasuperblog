@@ -22,8 +22,12 @@ class User < ActiveRecord::Base
 		self.roles.where(name: role).exists?
 	end
 
-	def get_list_posts 
-		das = Post.where(user_id: @id)
-		
+	def get_list_posts(id)
+		ids = []
+		posts = Post.where(user_id: id)
+		posts.map do |post|
+			ids << post.id
+		end
+		ids
 	end
 end
