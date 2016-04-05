@@ -44,20 +44,49 @@
 
  			background-color: #E7F2FB;
 
+ 			li {	
+ 				float: left;
+ 			}
+ 		}
+ 		.header {
  			ul {
  				float: right;
  				margin-right: 40px; 
  			}
 
  			li {
- 				
- 				float: left;
  				margin-left: 50px; 
  			}
  		}
 
  		.yield {
  			background-color: #fff;
+ 		}
+
+ 		.footer {
+
+ 			h1 {
+ 				text-align: center;
+ 			}
+
+ 			li {
+ 				margin-left: 50px;
+ 				
+ 			}
+
+ 			li:first-child {
+ 				margin-left:0; 
+ 			}
+
+ 			.nav {
+
+ 				width: 250px;
+ 				margin: 0 auto;
+
+ 				ul {
+
+ 				}
+ 			}
  		}
  	}
  }

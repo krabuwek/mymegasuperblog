@@ -8,8 +8,8 @@ class Ability
     if user.has_role?(:admin)
       can :manage, :all
     else
-      can [:create,:read], :all
-      can :update, Post, :id => user.get_list_posts(user.id)
+      can [:create,:read], Post
+      can :update, Post, :id => user.posts.map(&:id)
     end
 
     # Define abilities for the passed in user here. For example:

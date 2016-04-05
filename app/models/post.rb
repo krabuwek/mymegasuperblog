@@ -7,7 +7,4 @@ class Post < ActiveRecord::Base
   validates :body, presence: true
   validates :title, presence: true
 
-  def get_id 
-  	self.id
-  end
 end
