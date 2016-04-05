@@ -21,4 +21,8 @@ class User < ActiveRecord::Base
 	def has_role?(role)
 		self.roles.where(name: role).exists?
 	end
+
+	rails_admin do
+  end
+  
 end

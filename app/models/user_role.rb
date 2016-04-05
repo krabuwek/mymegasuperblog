@@ -6,4 +6,7 @@ class UserRole < ActiveRecord::Base
 		user.roles.where(name: role).exists?
   end
   
+  rails_admin do
+  end
+
 end
