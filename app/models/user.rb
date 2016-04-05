@@ -2,8 +2,8 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :posts
-  has_many :user_role
-  has_many :roles, :through => :user_role
+  has_many :user_roles
+  has_many :roles, :through => :user_roles
 
   before_create :create_role
 
