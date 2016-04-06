@@ -16,12 +16,12 @@
 <h2>Комментарии</h2>
 <% @post.comments.each do |comment| %>
 	<p>
-		<strong>Автор:</strong>
-		<%= comment.commenter %>
+		<strong>Комментарий:</strong>
+		<%= comment.body %>
 	</p>
 	<p>
-		<strong>Комментарий</strong>
-		<%= comment.body %>
+		<strong>Автор:</strong>
+		<%= comment.commenter %>
 	</p>
 <% end %>
 
@@ -29,11 +29,11 @@
 	<h2>Добавить комментарий</h2>
 	<%= form_for([@post,@post.comments.build]) do |f| %>
 		<p>
-			<%= f.label :body, "Комментарий" %>
+			<%= f.label :body, "Комментарий:" %>
 			<%= f.text_field :body %>
 		</p>
 		<p>
-			<%= f.submit %>
+			<%= f.submit "Опубликовать" %>
 		</p>
 	<% end %>
 <% else %>
