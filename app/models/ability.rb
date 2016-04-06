@@ -5,8 +5,11 @@ class Ability
 
     user ||= User.new # guest user (not logged in)
 
+    #can :manage, :rails_admin
+
     if user.has_role?(:admin)
       can :manage, :all
+      #can :access, :rails_admin
     else
       can [:create,:read], Post
       can :update, Post, :id => user.posts.map(&:id)

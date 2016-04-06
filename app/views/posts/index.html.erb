@@ -2,10 +2,6 @@
 
 <h1>Все новости</h1>
 
-<% if can? :update, @post %>
-  <div>you can</div>
-<% end %>
-
 <% @posts.each do |post| %>
   <div class="post">
     <div class="title">

@@ -9,9 +9,37 @@
 </div>
 <div><%= @post.user.email %></div>
 <div><%= @post.created_at %></div>
-
 <% if can? :update, @post %>
 	<%= link_to 'Edit', edit_post_path(@post) %> 
 <% end %>
-<%= link_to 'Back', posts_path %>
+
+<h2>Комментарии</h2>
+<% @post.comments.each do |comment| %>
+	<p>
+		<strong>Автор:</strong>
+		<%= comment.commenter %>
+	</p>
+	<p>
+		<strong>Комментарий</strong>
+		<%= comment.body %>
+	</p>
+<% end %>
+
+<% if user_signed_in? %>
+	<h2>Добавить комментарий</h2>
+	<%= form_for([@post,@post.comments.build]) do |f| %>
+		<p>
+			<%= f.label :body, "Комментарий" %>
+			<%= f.text_field :body %>
+		</p>
+		<p>
+			<%= f.submit %>
+		</p>
+	<% end %>
+<% else %>
+	<h2>Для того чтобы оставить комментарий вам нужно авторизоваться!</h2>
+<% end %>
+
+
+
 <%= link_to 'назад', :back %>

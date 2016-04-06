@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
- 
-  resources :posts
-  devise_for :users
   root 'posts#index'
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+ 
+  resources :posts do
+    resources :comments
+  end
+
+  devise_for :users
+ 
   #root 'home#index'
   #get 'persons/profile', as: 'user_root'
   # The priority is based upon order of creation: first created -> highest priority.
