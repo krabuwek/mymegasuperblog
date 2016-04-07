@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Все новости</h1>
-
+<div ng-app="dsd" ng-controller="MainController">
+  {{ test }}
+</div>
 <% @posts.each do |post| %>
   <div class="post">
     <div class="title">

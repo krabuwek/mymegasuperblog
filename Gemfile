@@ -30,6 +30,11 @@ gem 'rails_admin'
 gem 'paperclip' # and installed imagemagick, for image attachments
 
 
+source 'https://rails-assets.org' do
+	gem 'rails-assets-bootstrap'
+  gem 'rails-assets-angular'
+	gem 'rails-assets-leaflet'
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

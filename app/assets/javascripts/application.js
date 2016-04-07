@@ -14,3 +14,13 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require bootstrap
+//= require angular
+//= require leaflet
+
+angular.module('dsd',[])
+.controller('MainController',[
+	'$scope',
+	function($scope){
+		$scope.test = "Hello!";
+	}]);
