@@ -6,7 +6,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.order("created_at desc").page params[:page]
+    posts = Post.order("created_at desc").page params[:page]
+    render json: dasdasd
 
     #respond_to do |format|
      # msg = { status: :ok }
