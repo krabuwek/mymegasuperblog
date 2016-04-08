@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'kaminari'
 gem 'cancancan', '~> 1.10'
+gem 'active_model_serializers'
 
 gem 'rails_admin'
 gem 'paperclip' # and installed imagemagick, for image attachments

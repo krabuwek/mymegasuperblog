@@ -7,11 +7,17 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.order("created_at desc").page params[:page]
+
+    #respond_to do |format|
+     # msg = { status: :ok }
+      #format.json { render json: :msg }
+    #end
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+    render json: @posts
   end
 
   # GET /posts/new
@@ -46,7 +52,8 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        format.json { render :show, status: :ok, location: @post }
+        msg = { status: :ok }
+        format.json { render json: :msg }
       else
         format.html { render :edit }
         format.json { render json: @post.errors, status: :unprocessable_entity }
