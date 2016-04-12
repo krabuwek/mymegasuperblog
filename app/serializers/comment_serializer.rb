@@ -1,5 +1,5 @@
 class CommentSerializer < ActiveModel::Serializer
-  attributes :commenter, :body
+  attributes :commenter, :body, :created_at
 
  
 end

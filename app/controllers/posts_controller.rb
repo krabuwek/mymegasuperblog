@@ -8,7 +8,6 @@ class PostsController < ApplicationController
   def index
     posts = Post.order("created_at desc").page params[:page]
     render json: posts
-
     #respond_to do |format|
      # msg = { status: :ok }
       #format.json { render json: :msg }
@@ -18,7 +17,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    render json: @posts
+    render json: @post, serializer: PostWithCommenterSerializer, root: :post
   end
 
   # GET /posts/new

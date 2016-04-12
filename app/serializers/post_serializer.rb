@@ -1,6 +1,8 @@
 class PostSerializer < ActiveModel::Serializer
-  attributes :title, :body
+  attributes :id, :title, :created_at
+  #emded :ids, include: true
 
-  has_many :comments
-  has_one :user
+  has_one  :user, root: :author
+  has_many :comments, serializer: CommentsShortSerializer
 end
+	
