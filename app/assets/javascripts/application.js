@@ -18,9 +18,34 @@
 //= require angular
 //= require leaflet
 
-angular.module('dsd',[])
-.controller('MainController',[
-	'$scope',
-	function($scope){
-		$scope.test = "Hello!";
-	}]);
+var app = angular.module('dsd',[]);
+
+
+/*
+app.factory('Blog', function($resource) {
+	return $resource('/posts/');
+});
+*/
+
+
+app.controller('MainController', function($scope, $http) {
+	$scope.test = 'tesssst';
+	$scope.loaded = false;
+	$scope.load = function() {
+		console.log("ololol");
+		$http.get('http://localhost:3000/posts/').
+			success(function(data, status, headers, config) {
+                $scope.question=data.question;
+                $scope.loaded=true;
+                console.log("код ответа: " +status);
+                console.log("объем данных: " + headers("content-length"));
+            })
+						.error(function(data, status, headers, config) {
+                console.log("код ответа: " +status);
+            })
+
+	};
+	$scope.load();
+	});
+
+
