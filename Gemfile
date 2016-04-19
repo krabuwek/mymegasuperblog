@@ -25,11 +25,18 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'kaminari'
 gem 'cancancan', '~> 1.10'
-gem 'active_model_serializers'
+
+group :test, :development do
+  gem "rspec-rails", "~> 2.0"
+  gem "factory_girl_rails", "~> 4.0"
+  gem "capybara"
+  gem "database_cleaner"
+  gem "selenium-webdriver"
+end
 
 gem 'rails_admin'
 gem 'paperclip' # and installed imagemagick, for image attachments
-
+gem 'active_model_serializers', '~> 0.10.0.rc4'
 
 source 'https://rails-assets.org' do
 	gem 'rails-assets-bootstrap'

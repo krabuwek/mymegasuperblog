@@ -3,6 +3,5 @@ class PostSerializer < ActiveModel::Serializer
   #emded :ids, include: true
 
   has_one  :user, root: :author
-  has_many :comments, serializer: CommentsShortSerializer
 end
 	
