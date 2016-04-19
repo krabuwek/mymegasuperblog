@@ -1,7 +1,7 @@
 class PostSerializer < ActiveModel::Serializer
-  attributes :id, :title, :created_at
+  attributes :id, :created_at, :title, :body
   #emded :ids, include: true
 
-  has_one  :user, root: :author
+  has_one  :user,  serializer: UserSerializer
 end
 	

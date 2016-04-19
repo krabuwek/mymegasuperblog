@@ -35,8 +35,8 @@ app.controller('MainController', function($scope, $http) {
 		console.log("ololol");
 		$http.get('http://localhost:3000/posts/').
 			success(function(data, status, headers, config) {
-                $scope.question=data.question;
-                $scope.loaded=true;
+                $scope.data = data.data;
+                $scope.loaded = true;
                 console.log("код ответа: " +status);
                 console.log("объем данных: " + headers("content-length"));
             })
