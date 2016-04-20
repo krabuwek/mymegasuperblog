@@ -32,7 +32,6 @@ app.controller('MainController', function($scope, $http) {
 	$scope.test = 'tesssst';
 	$scope.loaded = false;
 	$scope.load = function() {
-		console.log("ololol");
 		$http.get('http://localhost:3000/posts/').
 			success(function(data, status, headers, config) {
                 $scope.data = data.data;

@@ -1,3 +1,42 @@
 // Place all the styles related to the Main controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.ng-scope {
+  padding: 20px 20px 0;
+
+  .ng-scope {
+    padding: 20px;
+
+    .time {
+      float: left;
+    }
+
+    .user-email {
+      float: right;
+    }
+    .body {
+      border-bottom: 3px dotted black;
+      margin-bottom: 10px;
+    }
+  }
+  .field {
+    margin-left: 25px;
+  }
+
+  .text {
+    padding-bottom: 30px;
+  }
+
+  .pagination {
+
+    background-color: #E7F2FB;
+    margin-left: 20px;
+
+    span {
+      display: inline-block;
+      padding: 5px;
+    }
+
+  }
+
+}

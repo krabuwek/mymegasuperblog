@@ -1,16 +1,17 @@
 <div ng-app="dsd" ng-controller="MainController">
 	<p>{{ loaded }}</p>
 	<div ng-repeat="post in data">
-		<p>
-			<strong>Title:</strong>{{ post.attributes.title }}
-		</p>
-		<p>
-			<strong>Body:</strong>{{ post.attributes.body }}
-		</p>
-		<p>
-			<strong>Created at:</strong>{{ post.attributes.created-at }}
-		</p>
-		
+    <div class="title">
+      <h1>{{ post.attributes.title }}</h1>
+    </div>
+    <div class="body">
+      {{ post.attributes.body | limitTo:300 }}...
+    </div>
+    <div class="time">
+      {{ post.attributes.created-at }}
+    </div>
+    <div class="user-email">
+      email:
+    </div>
 	</div>
-
 </div>
