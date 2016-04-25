@@ -1,17 +1,43 @@
-<div ng-app="dsd" ng-controller="MainController">
-	<p>{{ loaded }}</p>
-	<div ng-repeat="post in data">
-    <div class="title">
-      <h1>{{ post.attributes.title }}</h1>
-    </div>
-    <div class="body">
-      {{ post.attributes.body | limitTo:300 }}...
-    </div>
-    <div class="time">
-      {{ post.attributes.created-at }}
-    </div>
-    <div class="user-email">
-      email:
-    </div>
+<div ng-app="dsd" ng-controller="MainController" class="clear-fix">
+	<div class="sidebar">
+		<div ng-repeat="post in data" class="item">
+	    <div class="title" ng-click="getPost(post.id)">
+	      <h1>{{ post.attributes.title }}</h1>
+	    </div>
+	    <div class="body">
+	      {{ post.attributes.body }}
+	    </div>
+	    <div class="time">
+	      {{ post.attributes.created | date:MM/dd/yyyy }}
+	    </div>
+	    <div class="user-email">
+	      email:{{ post.attributes.email}}
+	    </div>
+		</div>
 	</div>
+	<div class="post">
+		<h1>{{ post.attributes.title }}</h1>
+		<div class="body">
+			{{ post.attributes.body }}
+		</div>
+		<div class="time">
+	    date: {{ post.attributes.created | date:MM/dd/yyyy }}
+	  </div>
+	  <div class="user-email">
+	    email:{{ post.attributes.email}}
+	  </div>
+	  <h1>Комментарии</h1>
+	  <div class="comment" ng-repeat="comment in post.attributes.comments">
+	  	<div class="body-comment">
+	  		{{ comment.body }}
+	  	</div>
+	  	<div class="author-comment">
+	  		{{ comment.commenter }}
+	  	</div>
+	  	<div class="create-at-comment">
+	  		
+	  	</div>
+	  </div>
+	</div>
+
 </div>

@@ -28,14 +28,17 @@ app.factory('Blog', function($resource) {
 */
 
 
+
 app.controller('MainController', function($scope, $http) {
 	$scope.test = 'tesssst';
 	$scope.loaded = false;
+	$scope.date = '2016-04-04T14:29:11.620Z';
 	$scope.load = function() {
 		$http.get('http://localhost:3000/posts/').
 			success(function(data, status, headers, config) {
                 $scope.data = data.data;
                 $scope.loaded = true;
+                $scope.links
                 console.log("код ответа: " +status);
                 console.log("объем данных: " + headers("content-length"));
             })
@@ -44,7 +47,18 @@ app.controller('MainController', function($scope, $http) {
             })
 
 	};
+	$scope.getPost = function(id) {
+		$http.get('http://localhost:3000/posts/' + id).
+			success(function(data, status, headers, config) {
+				$scope.post = data.data;
+				$scope.loaded = true;
+				console.log(data);
+			})
+			.error(function(data, status, headers, config) {
+				console.log("Код ответа: " + status)
+			});
+	};
 	$scope.load();
-	});
+});
 
 
