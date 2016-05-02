@@ -33,12 +33,14 @@ app.controller('MainController', function($scope, $http) {
 	$scope.test = 'tesssst';
 	$scope.loaded = false;
 	$scope.date = '2016-04-04T14:29:11.620Z';
-	$scope.load = function() {
-		$http.get('http://localhost:3000/posts/').
+	$scope.load = function(linkToPage = 'http://localhost:3000/posts/?page[page]=1') {
+		$http.get(linkToPage).
 			success(function(data, status, headers, config) {
                 $scope.data = data.data;
+                console.log(data);
                 $scope.loaded = true;
-                $scope.links
+                $scope.links = data.links;
+                //console.log(data.links);
                 console.log("код ответа: " +status);
                 console.log("объем данных: " + headers("content-length"));
             })
@@ -57,6 +59,27 @@ app.controller('MainController', function($scope, $http) {
 			.error(function(data, status, headers, config) {
 				console.log("Код ответа: " + status)
 			});
+	};
+	$scope.nextPage = function() {
+		$scope.load($scope.links.next);
+	}
+	$scope.prevPage = function() {
+		$scope.load($scope.links.prev);
+	}
+	$scope.sendComment = function() {
+		var comment = $.param({
+			json: JSON.stringify({
+				post_id: $scope.post.id,
+				comment: $scope.newComment
+			})
+		});
+
+		$http.post("/posts/" + $scope.post.id + "/comments.json", comment).success(function(data, status) {
+			console.log(status);
+		}).error(function(data, status, headers, config) {
+			console.log(status);
+			console.log(headers);
+		});
 	};
 	$scope.load();
 });

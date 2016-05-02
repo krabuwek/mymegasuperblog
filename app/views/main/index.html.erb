@@ -1,7 +1,12 @@
 <div ng-app="dsd" ng-controller="MainController" class="clear-fix">
 	<div class="sidebar">
+		<div class="nav">  
+			<button ng-click="nextPage()">next</button>
+			<button ng-click="prevPage()">prev</button>
+		</div>
 		<div ng-repeat="post in data" class="item">
 	    <div class="title" ng-click="getPost(post.id)">
+
 	      <h1>{{ post.attributes.title }}</h1>
 	    </div>
 	    <div class="body">
@@ -38,6 +43,10 @@
 	  		
 	  	</div>
 	  </div>
+	  <h1>Новый комментарий</h1>
+	  <form ng-submit="sendComment()">
+    	<input ng-model="newComment"/>
+    	<button type="submit">Send</button>
+		</form>
 	</div>
-
 </div>

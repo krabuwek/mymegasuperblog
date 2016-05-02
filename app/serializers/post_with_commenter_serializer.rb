@@ -1,5 +1,5 @@
 class PostWithCommenterSerializer < ActiveModel::Serializer
-  attributes :id, :body, :title, :comments, :email
+  attributes :id, :body, :title, :comments, :email, :me
   attribute :created_at, key: :created
 
   has_one :user
@@ -8,8 +8,13 @@ class PostWithCommenterSerializer < ActiveModel::Serializer
   def email 
   	object.user.email
   end
+
   def comments 
   	object.comments
+  end
+
+  def me 
+    current_user
   end
 
 

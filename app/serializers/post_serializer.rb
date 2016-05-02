@@ -13,5 +13,6 @@ class PostSerializer < ActiveModel::Serializer
 	object.body.length > 300 ? object.body[0..300] << "..." : object.body << "..."
 	#object.body << "..."
   end
+
 end
 	

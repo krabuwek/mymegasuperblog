@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'main/index'
 
-  root 'posts#index'
+  root 'main#index'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
  
