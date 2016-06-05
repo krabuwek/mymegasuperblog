@@ -17,8 +17,9 @@
 //= require bootstrap
 //= require angular
 //= require leaflet
+//= require angular-ui-router
 
-var app = angular.module('dsd',[]);
+var app = angular.module('dsd',['ui.router']);
 
 
 /*
@@ -30,7 +31,6 @@ app.factory('Blog', function($resource) {
 
 
 app.controller('MainController', function($scope, $http) {
-	$scope.test = 'tesssst';
 	$scope.loaded = false;
 	$scope.date = '2016-04-04T14:29:11.620Z';
 	$scope.load = function(linkToPage = 'http://localhost:3000/posts/?page[page]=1') {

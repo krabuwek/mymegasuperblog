@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'kaminari'
 gem 'cancancan', '~> 1.10'
+gem 'angular-ui-router-rails'
 
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
