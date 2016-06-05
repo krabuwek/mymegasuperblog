@@ -19,7 +19,25 @@
 //= require leaflet
 //= require angular-ui-router
 
-var app = angular.module('dsd',['ui.router']);
+var app = angular.module('dsd',['ui.router'])
+	.config(function($stateProvider, $urlRouterProvider) {
+		$stateProvider
+			.state('/', {
+				url: "route1/:post",
+				templateUrl: "http://localhost:3000/posts/16",
+				views : {
+					viewA : {
+						templateUrl : "http://localhost:3000/"
+					}
+				},
+				controller : function($scope, $stateParams) {
+   					  $scope.post = $stateParams.post || 1;
+  				} 
+
+			});
+			//$urlRouterProvider.otherwise('localhost:3000');
+	});
+	
 
 
 /*
